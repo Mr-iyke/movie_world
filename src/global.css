@@ -81,7 +81,6 @@
 .search-box {
   display: flex;
   flex-direction: column;
-  list-style-type: none;
   gap: 1.5rem;
   background-color: black;
   height: 100%;
@@ -94,37 +93,24 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
+  /* display: flex; */
   /* display: none; */
   transform: translateX(-100%);
   top: 0;
   z-index: 40;
 }
 
-/* .container {
-  display: flex;
-  align-items: center;
-  background-color: whitesmoke;
-  height: 100%; 
-  width: 16%;
-} */
-
 .order {
   display: flex;
   flex-direction: column;
-  /* list-style-type: none; */
+  list-style-type: none;
   gap: 1.5rem;
   z-index: 90;
   background-color: black;
   height: 100%;
   width: 16%;
   padding-top: 3.5rem;
-  /* overflow-y: scroll; */
-}
-
-.navlist > .navlink {
-  position: relative;
-  cursor: pointer;
-  user-select: none;
+  /* overflow-y: auto; */
 }
 
 .slider-open {
@@ -176,6 +162,52 @@
   }
   to {
     transform: translateX(-100%);
+  }
+}
+
+.navlist > .navlink {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.listers {
+  transform: translateY(0%);
+  opacity: 0;
+  display: none;
+}
+
+.open-list {
+  animation: listOpen 500ms ease-in-out forwards;
+}
+
+.close-list {
+  animation: listClose 500ms ease-in-out forwards;
+}
+
+@keyframes listOpen {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+    display: none;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 100;
+    display: flex;
+  }
+}
+
+@keyframes listClose {
+  from {
+    transform: translateY(100%);
+    opacity: 100;
+    display: flex;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 0;
+    display: none;
   }
 }
 
