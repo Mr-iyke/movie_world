@@ -15,12 +15,18 @@
   position: sticky;
   z-index: 100;
   height: 60px;
+  /* background: linear-gradient(to right, rgba(0, 8, 29, 1), black, rgba(0, 8, 29, 1)); */
+  /* background-color: rgb(0, 0, 0); */
 }
 
 .nav-btn {
   width: 40px;
   height: 30px;
   z-index: 100;
+}
+
+.logo-box {
+  width: 40px;
 }
 
 .bar {
@@ -104,13 +110,15 @@
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  gap: 1.5rem;
+  gap: 0.5rem;
   z-index: 90;
   background-color: black;
+  /* background-color: rgb(0, 5, 19); */
+  /* background: linear-gradient(to bottom, black, rgba(0, 8, 29, 1), black); */
   height: 100%;
   width: 16%;
-  padding-top: 3.5rem;
-  /* overflow-y: auto; */
+  padding-top: 5rem;
+  /* overflow-y: scroll; */
 }
 
 .slider-open {
@@ -172,43 +180,25 @@
 }
 
 .listers {
-  transform: translateY(0%);
+  /* display: none; */
   opacity: 0;
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
 }
 
-.open-list {
-  animation: listOpen 500ms ease-in-out forwards;
+.listers.show {
+  display: block;
+  max-height: 150px; /* Adjust this value to fit your content */
+  opacity: 1;
 }
 
-.close-list {
-  animation: listClose 500ms ease-in-out forwards;
+.navlist {
+  transition: transform 0.5s ease; /* Add transition for transform property */
 }
 
-@keyframes listOpen {
-  from {
-    transform: translateY(0%);
-    opacity: 0;
-    display: none;
-  }
-  to {
-    transform: translateY(100%);
-    opacity: 100;
-    display: flex;
-  }
-}
-
-@keyframes listClose {
-  from {
-    transform: translateY(100%);
-    opacity: 100;
-    display: flex;
-  }
-  to {
-    transform: translateY(0%);
-    opacity: 0;
-    display: none;
-  }
+.rotate {
+  transform: rotateX(180deg);
 }
 
 .list-icon {
@@ -222,17 +212,24 @@
   cursor: pointer;
   text-align: center;
   font-size: 25px;
+  transition: transform 0.3s ease;
 }
 
 .navlist > ul .navlink {
   font-weight: 500;
   font-size: 0.8rem;
-  padding: 1em 1em 1em 3em;
+  /* padding: 1em 1em 1em 3em; */
+}
+
+.subscribe {
+  margin-inline-start: 1rem;
+  margin-inline-end: 8rem;
+  margin-block: 0.6rem;
 }
 
 .navlink {
   display: block;
-  padding: 1em 1em 1em 2.3em;
+  /* padding: 1em 1em 1em 2.3em; */
   text-decoration: none;
   /* font-family: "Poppins", sans-serif; */
   font-family: "Raleway", sans-serif;
@@ -243,7 +240,7 @@
 }
 
 .navlink:hover {
-  background-color: blue;
+  background-color: rgb(0, 5, 19);
 }
 
 @media screen and (min-width: 162px) {
@@ -272,7 +269,6 @@
   }
 
   .order {
-    gap: 0.5rem;
     width: 73%;
   }
 
@@ -291,6 +287,11 @@
     padding: 0.7em 0.7em 0.7em 0.7em;
     font-weight: 700;
     font-size: 0.65rem;
+  }
+
+  .subscribe {
+    margin-inline-start: 0.5rem;
+    margin-inline-end: 3.5rem;
   }
 }
 
@@ -321,7 +322,6 @@
   }
 
   .order {
-    gap: 0.5rem;
     width: 70%;
   }
 
@@ -340,6 +340,11 @@
     padding: 0.7em 0.7em 0.7em 1em;
     font-weight: 600;
     font-size: 0.85rem;
+  }
+
+  .subscribe {
+    margin-inline-start: 1rem;
+    margin-inline-end: 7.2rem;
   }
 }
 
@@ -446,9 +451,25 @@
     font-weight: 600;
     font-size: 0.85rem;
   }
+
+  .subscribe {
+    margin-inline-start: 0.8rem;
+    margin-inline-end: 7rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .subscribe {
+    margin-inline-end: 8.5rem;
+  }
 }
 
 @media screen and (min-width: 600px) {
+  .subscribe {
+    margin-inline-start: 0.8rem;
+    margin-inline-end: 7.5rem;
+  }
+
   .search-box {
     width: 40%;
   }
@@ -459,6 +480,10 @@
 }
 
 @media screen and (min-width: 700px) {
+  .subscribe {
+    margin-inline-end: 8.5rem;
+  }
+
   .search-box {
     width: 37%;
   }
@@ -469,6 +494,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .subscribe {
+    margin-inline-end: 8rem;
+  }
+
   .nav-btn {
     width: 31px;
     height: 21px;
@@ -506,6 +535,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .subscribe {
+    margin-inline-end: 9rem;
+  }
+
   .search-box {
     width: 25%;
   }

@@ -12,6 +12,26 @@ const bars = document.getElementsByClassName(".bar");
 let isMenuOpen = false; // Track menu state
 let isSearchOpen = false; // Track menu state
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all elements with class "clickers"
+  var clickers = document.querySelectorAll(".clickers");
+
+  // Add click event listener to each "clickers" element
+  clickers.forEach(function (clicker) {
+    clicker.addEventListener("click", function () {
+      // Toggle the visibility of the next sibling element with class "listers"
+      var listers = this.nextElementSibling;
+      listers.classList.toggle("show");
+
+      // Toggle the rotation for the .list-icon inside the clicked clicker
+      var text = this.querySelector(".list-icon");
+      text.classList.toggle("rotate");
+    });
+  });
+});
+
+
+
 function openMenu() {
   if (isSearchOpen) {
     // Close search bar if open before opening menu
@@ -63,3 +83,15 @@ function openSearch() {
 
 hamburger.addEventListener("click", openMenu);
 search.addEventListener("click", openSearch);
+
+menu.addEventListener("click", function (event) {
+  if (event.target === menu) {
+    openMenu();
+  }
+});
+
+searchbar.addEventListener("click", function (event) {
+  if (event.target === searchbar) {
+    openSearch();
+  }
+});
