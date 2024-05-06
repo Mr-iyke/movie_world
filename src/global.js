@@ -9,6 +9,8 @@ const search = document.querySelector(".material-symbols-outlined");
 const searchbar = document.querySelector(".search-container");
 const searchbox = document.querySelector(".search-box");
 const bars = document.getElementsByClassName(".bar");
+const listers = document.querySelectorAll(".listers");
+const texts = document.querySelectorAll(".list-icon");
 let isMenuOpen = false; // Track menu state
 let isSearchOpen = false; // Track menu state
 
@@ -30,8 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
-
 function openMenu() {
   if (isSearchOpen) {
     // Close search bar if open before opening menu
@@ -42,6 +42,7 @@ function openMenu() {
     searchbox.classList.add("slider-close");
     searchbox.classList.remove("slider-open");
   }
+
   if (!isMenuOpen) {
     isMenuOpen = true;
     menu.style.transform = "translateX(0)";
@@ -56,6 +57,8 @@ function openMenu() {
     menu.classList.remove("slider-open-nav");
     list.classList.add("slider-close-nav");
     list.classList.remove("slider-open-nav");
+    listers.forEach((lister) => lister.classList.remove("show"));
+    texts.forEach((text) => text.classList.remove("rotate"));
   }
 }
 
@@ -64,6 +67,7 @@ function openSearch() {
     // Close menu if open before opening search
     openMenu(); // Call openMenu to close menu
   }
+
   if (!isSearchOpen) {
     searchbar.style.transform = "translateX(0)";
     searchbar.classList.remove("slider-close");
@@ -78,6 +82,8 @@ function openSearch() {
     searchbox.classList.add("slider-close");
     searchbox.classList.remove("slider-open");
     isSearchOpen = false;
+    listers.forEach((lister) => lister.classList.remove("show"));
+    texts.forEach((text) => text.classList.remove("rotate"));
   }
 }
 
