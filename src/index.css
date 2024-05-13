@@ -179,22 +179,6 @@ h1 {
   margin-block-start: 2rem;
 }
 
-.link {
-  border-radius: 15px;
-  border: solid 1px blue;
-  text-decoration: none;
-  font-family: "Raleway", sans-serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: whitesmoke;
-  padding: 0.8em 1em 0.8em 1em;
-  transition: 500ms;
-}
-
-.link:hover {
-  background-color: blue;
-}
-
 .music-data {
   position: relative;
   height: 100%;
